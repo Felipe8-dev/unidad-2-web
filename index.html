@@ -3,219 +3,379 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Código y Fútbol</title>
+  <title>Cod Point · CIPA Unidad 2</title>
+  <meta name="description" content="Página de inicio del CIPA Cod Point con los sitios web de cada integrante. Actividad de aprendizaje de la Unidad 2.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ---------- Estilos básicos ---------- */
+    :root {
+      --fondo: #F6F1E9;
+      --papel: #FFFDF9;
+      --tinta: #1E1B18;
+      --suave: #6B635A;
+      --linea: #E4DBCF;
+      --sombra: 0 1px 2px rgba(30, 27, 24, 0.06), 0 8px 24px rgba(30, 27, 24, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #F2F4EF;
-      color: #1D2B23;
       margin: 0;
-      padding: 0;
+      padding: 0 20px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--fondo);
+      color: var(--tinta);
       line-height: 1.6;
     }
 
-    header {
-      background-color: #0E4A2D;
-      color: #FFFFFF;
-      padding: 45px 25px;
-      text-align: center;
-    }
-
-    header h1 { margin: 0 0 10px; font-size: 40px; }
-
-    nav {
-      background-color: #0A1410;
-      padding: 12px 25px;
-      text-align: center;
-    }
-
-    nav a {
-      color: #FFD23F;
-      text-decoration: none;
-      margin: 0 12px;
-      font-weight: bold;
-    }
-
-    nav a:hover { text-decoration: underline; }
-
-    section {
-      max-width: 850px;
+    .contenedor {
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 35px 25px;
     }
 
-    h2 { color: #0E4A2D; }
-
-    img { max-width: 100%; border-radius: 10px; }
-
-    /* ---------- Estilos avanzados ---------- */
-    article {
-      background-color: #FFFFFF;
-      padding: 20px 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    /* ---------- Encabezado ---------- */
+    header {
+      padding: 72px 0 48px;
+      border-bottom: 1px solid var(--linea);
     }
 
-    button {
-      background-color: #FFD23F;
-      color: #0A1410;
-      font-size: 16px;
-      border: none;
-      padding: 12px 22px;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: background-color 0.3s;
+    .etiqueta {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9A3412;
+      background-color: #FDE7D6;
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin: 0 0 20px;
     }
 
-    button:hover { background-color: #E4572E; color: #FFFFFF; }
+    h1 {
+      font-family: "Fraunces", Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 0 20px;
+    }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: #FFFFFF;
-      border-radius: 10px;
+    .intro {
+      font-size: clamp(17px, 2.2vw, 20px);
+      color: var(--suave);
+      max-width: 640px;
+      margin: 0 0 32px;
+    }
+
+    .integrantes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .integrantes li {
+      background-color: var(--papel);
+      border: 1px solid var(--linea);
+      border-radius: 999px;
+      padding: 6px 14px 6px 6px;
+      font-weight: 500;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .integrantes .punto {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    /* ---------- Tarjetas ---------- */
+    main { padding: 56px 0 24px; }
+
+    h2 {
+      font-family: "Fraunces", Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      font-size: 28px;
+      margin: 0 0 8px;
+    }
+
+    .subtitulo {
+      color: var(--suave);
+      margin: 0 0 32px;
+    }
+
+    .rejilla {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+      gap: 20px;
+    }
+
+    .tarjeta {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--papel);
+      border: 1px solid var(--linea);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: var(--sombra);
+      color: inherit;
+      text-decoration: none;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
-    th {
-      background-color: #0E4A2D;
+    .tarjeta::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background-color: var(--acento);
+    }
+
+    .tarjeta:hover,
+    .tarjeta:focus-visible {
+      transform: translateY(-4px);
+      border-color: var(--acento);
+      box-shadow: 0 2px 4px rgba(30, 27, 24, 0.06), 0 18px 40px rgba(30, 27, 24, 0.12);
+      outline: none;
+    }
+
+    .cabecera {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .avatar {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 700;
+      font-size: 22px;
       color: #FFFFFF;
-      padding: 12px;
-      text-align: left;
+      background-color: var(--acento);
     }
 
-    td {
-      padding: 12px;
-      border-bottom: 1px solid #DDDDDD;
+    .nombre {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.3;
     }
 
-    video, iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    .numero {
+      font-size: 13px;
+      color: var(--suave);
+      margin: 0;
     }
 
+    .sitio {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.3;
+      margin: 0 0 8px;
+    }
+
+    .descripcion {
+      color: var(--suave);
+      margin: 0 0 24px;
+      flex-grow: 1;
+    }
+
+    .pie-tarjeta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-top: 18px;
+      border-top: 1px dashed var(--linea);
+    }
+
+    .dominio {
+      font-size: 13px;
+      color: var(--suave);
+      word-break: break-all;
+    }
+
+    .boton {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      color: #FFFFFF;
+      background-color: var(--tinta);
+      padding: 10px 18px;
+      border-radius: 999px;
+      transition: background-color 0.25s ease;
+    }
+
+    .boton svg { transition: transform 0.25s ease; }
+
+    .tarjeta:hover .boton,
+    .tarjeta:focus-visible .boton { background-color: var(--acento); }
+
+    .tarjeta:hover .boton svg,
+    .tarjeta:focus-visible .boton svg { transform: translate(2px, -2px); }
+
+    /* Colores de cada integrante */
+    .andres { --acento: #C2410C; }
+    .diego  { --acento: #0F766E; }
+    .jose   { --acento: #7C3AED; }
+    .luis   { --acento: #1D4ED8; }
+
+    /* ---------- Pie de página ---------- */
     footer {
-      background-color: #0A1410;
-      color: #FFFFFF;
-      text-align: center;
-      padding: 25px;
-      margin-top: 30px;
+      margin-top: 48px;
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--linea);
+      color: var(--suave);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 48px 0 36px; }
+      .tarjeta { padding: 22px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tarjeta, .boton, .boton svg { transition: none; }
+      .tarjeta:hover, .tarjeta:focus-visible { transform: none; }
     }
   </style>
 </head>
 
 <body>
+  <div class="contenedor">
 
-  <header>
-    <h1>Código y Fútbol</h1>
-    <p>La tecnología que hoy se usa dentro de la cancha</p>
-  </header>
-
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#tabla">Tecnologías</a>
-    <a href="#multimedia">Multimedia</a>
-  </nav>
-
-  <section id="inicio">
-    <h2>¿De qué se trata?</h2>
-    <article>
-      <p>
-        El fútbol dejó de ser solo cancha y balón. Hoy cada partido se graba con cámaras,
-        sensores y programas que analizan lo que pasa en el juego para ayudar al árbitro
-        y al entrenador a tomar mejores decisiones.
+    <header>
+      <p class="etiqueta">CIPA · Actividad de aprendizaje · Unidad 2</p>
+      <h1>Cod Point</h1>
+      <p class="intro">
+        Somos el CIPA Cod Point. Cada integrante construyó su propia página con HTML y CSS como parte de la
+        actividad de aprendizaje de la Unidad 2. Desde aquí puede entrar al sitio de cada uno.
       </p>
 
-      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMjYwIiByb2xlPSJpbWciPgogIDxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjYwIiBmaWxsPSIjMEIzQTI0Ii8+CiAgPGcgZmlsbD0iIzBFNEEyRCI+CiAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNTAiIGhlaWdodD0iMjYwIi8+CiAgICA8cmVjdCB4PSIxMDAiIHk9IjAiIHdpZHRoPSI1MCIgaGVpZ2h0PSIyNjAiLz4KICAgIDxyZWN0IHg9IjIwMCIgeT0iMCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjI2MCIvPgogICAgPHJlY3QgeD0iMzAwIiB5PSIwIiB3aWR0aD0iNTAiIGhlaWdodD0iMjYwIi8+CiAgPC9nPgogIDxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0U3RUVFNiIgc3Ryb2tlLXdpZHRoPSIzIj4KICAgIDxyZWN0IHg9IjEyIiB5PSIxMiIgd2lkdGg9IjM3NiIgaGVpZ2h0PSIyMzYiLz4KICAgIDxsaW5lIHgxPSIyMDAiIHkxPSIxMiIgeDI9IjIwMCIgeTI9IjI0OCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMTMwIiByPSIzOCIvPgogICAgPHJlY3QgeD0iMTIiIHk9IjYwIiB3aWR0aD0iNTgiIGhlaWdodD0iMTQwIi8+CiAgICA8cmVjdCB4PSIxMiIgeT0iOTciIHdpZHRoPSIyMiIgaGVpZ2h0PSI2NiIvPgogICAgPHJlY3QgeD0iMzMwIiB5PSI2MCIgd2lkdGg9IjU4IiBoZWlnaHQ9IjE0MCIvPgogICAgPHJlY3QgeD0iMzY2IiB5PSI5NyIgd2lkdGg9IjIyIiBoZWlnaHQ9IjY2Ii8+CiAgPC9nPgogIDxnIGZpbGw9IiNFN0VFRTYiPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMTMwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1MiIgY3k9IjEzMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMzQ4IiBjeT0iMTMwIiByPSI0Ii8+CiAgPC9nPgogIDxnIGZpbGw9IiNGRkQyM0YiIHN0cm9rZT0iIzBBMTQxMCIgc3Ryb2tlLXdpZHRoPSIyLjUiPgogICAgPGNpcmNsZSBjeD0iMzAiIGN5PSIxMzAiIHI9IjgiLz4KICAgIDxjaXJjbGUgY3g9Ijg4IiBjeT0iNDYiIHI9IjgiLz4KICAgIDxjaXJjbGUgY3g9Ijg4IiBjeT0iMTAyIiByPSI4Ii8+CiAgICA8Y2lyY2xlIGN4PSI4OCIgY3k9IjE1OCIgcj0iOCIvPgogICAgPGNpcmNsZSBjeD0iODgiIGN5PSIyMTQiIHI9IjgiLz4KICAgIDxjaXJjbGUgY3g9IjE2NCIgY3k9IjcwIiByPSI4Ii8+CiAgICA8Y2lyY2xlIGN4PSIxNjQiIGN5PSIxMzAiIHI9IjgiLz4KICAgIDxjaXJjbGUgY3g9IjE2NCIgY3k9IjE5MCIgcj0iOCIvPgogICAgPGNpcmNsZSBjeD0iMjU4IiBjeT0iNTgiIHI9IjgiLz4KICAgIDxjaXJjbGUgY3g9IjI1OCIgY3k9IjEzMCIgcj0iOCIvPgogICAgPGNpcmNsZSBjeD0iMjU4IiBjeT0iMjAyIiByPSI4Ii8+CiAgPC9nPgo8L3N2Zz4K" alt="Cancha de fútbol vista desde arriba con la formación 4-3-3">
-
-      <h3>Lo que mide un software deportivo</h3>
-      <ul>
-        <li>La posición de cada jugador durante todo el partido.</li>
-        <li>Los kilómetros que recorre y la cantidad de sprints.</li>
-        <li>La probabilidad de gol de cada remate (xG).</li>
+      <ul class="integrantes" aria-label="Integrantes del CIPA Cod Point">
+        <li><span class="punto" style="background-color:#C2410C">AJ</span>Andrés Jiménez</li>
+        <li><span class="punto" style="background-color:#0F766E">DH</span>Diego Hernández</li>
+        <li><span class="punto" style="background-color:#7C3AED">JR</span>José Ramírez</li>
+        <li><span class="punto" style="background-color:#1D4ED8">LA</span>Luis Amorocho</li>
       </ul>
+    </header>
 
-      <h3>Pasos de un análisis</h3>
-      <ol>
-        <li>Se graban los datos del partido.</li>
-        <li>Se ordenan en una base de datos.</li>
-        <li>Se muestran en gráficas para el cuerpo técnico.</li>
-      </ol>
+    <main>
+      <h2>Sitios de los integrantes</h2>
+      <p class="subtitulo">Haga clic en una tarjeta para abrir el sitio en una pestaña nueva.</p>
 
-      <p>
-        Puedes ver datos reales de partidos en
-        <a href="https://github.com/statsbomb/open-data" target="_blank">StatsBomb Open Data</a>.
-      </p>
-    </article>
-  </section>
+      <div class="rejilla">
 
-  <section id="tabla">
-    <h2>Tecnologías del fútbol</h2>
+        <a class="tarjeta andres" href="https://andresosa02.github.io/pagina-portatiles/" target="_blank" rel="noopener">
+          <div class="cabecera">
+            <span class="avatar" aria-hidden="true">AJ</span>
+            <div>
+              <p class="nombre">Andrés Jiménez</p>
+              <p class="numero">Integrante 01</p>
+            </div>
+          </div>
+          <p class="sitio">GadgetBook</p>
+          <p class="descripcion">El mundo de los computadores portátiles.</p>
+          <div class="pie-tarjeta">
+            <span class="dominio">andresosa02.github.io/pagina-portatiles</span>
+            <span class="boton">Visitar sitio
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10L10 4M10 4H5M10 4V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
 
-    <table>
-      <tr>
-        <th>Tecnología</th>
-        <th>Para qué sirve</th>
-        <th>Año</th>
-      </tr>
-      <tr>
-        <td>Ojo de halcón</td>
-        <td>Confirmar si el balón entró al arco</td>
-        <td>2012</td>
-      </tr>
-      <tr>
-        <td>VAR</td>
-        <td>Revisar goles, penales y tarjetas rojas</td>
-        <td>2018</td>
-      </tr>
-      <tr>
-        <td>Fuera de juego semiautomático</td>
-        <td>Marcar la posición exacta del atacante</td>
-        <td>2022</td>
-      </tr>
-      <tr>
-        <td>Chalecos GPS</td>
-        <td>Medir la carga física del jugador</td>
-        <td>2015</td>
-      </tr>
-    </table>
+        <a class="tarjeta diego" href="https://tecnoweb-diego.web.app/" target="_blank" rel="noopener">
+          <div class="cabecera">
+            <span class="avatar" aria-hidden="true">DH</span>
+            <div>
+              <p class="nombre">Diego Hernández</p>
+              <p class="numero">Integrante 02</p>
+            </div>
+          </div>
+          <p class="sitio">TecnoWeb</p>
+          <p class="descripcion">Tecnología: pasado, presente y futuro.</p>
+          <div class="pie-tarjeta">
+            <span class="dominio">tecnoweb-diego.web.app</span>
+            <span class="boton">Visitar sitio
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10L10 4M10 4H5M10 4V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
 
-    <p>
-      <button type="button" onclick="mostrarDato()">Mostrar un dato curioso</button>
-    </p>
-    <p id="dato"></p>
-  </section>
+        <a class="tarjeta jose" href="https://joser177.github.io/musica-colombia/" target="_blank" rel="noopener">
+          <div class="cabecera">
+            <span class="avatar" aria-hidden="true">JR</span>
+            <div>
+              <p class="nombre">José Ramírez</p>
+              <p class="numero">Integrante 03</p>
+            </div>
+          </div>
+          <p class="sitio">Conciertos Colombia</p>
+          <p class="descripcion">La mejor rumba en vivo: música y conciertos en Colombia.</p>
+          <div class="pie-tarjeta">
+            <span class="dominio">joser177.github.io/musica-colombia</span>
+            <span class="boton">Visitar sitio
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10L10 4M10 4H5M10 4V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
 
-  <section id="multimedia">
-    <h2>Multimedia</h2>
+        <a class="tarjeta luis" href="luis.html" target="_blank" rel="noopener">
+          <div class="cabecera">
+            <span class="avatar" aria-hidden="true">LA</span>
+            <div>
+              <p class="nombre">Luis Amorocho</p>
+              <p class="numero">Integrante 04</p>
+            </div>
+          </div>
+          <p class="sitio">Código y Fútbol</p>
+          <p class="descripcion">La tecnología que hoy se usa dentro de la cancha.</p>
+          <div class="pie-tarjeta">
+            <span class="dominio">felipe8-dev.github.io/unidad-2-web/luis.html</span>
+            <span class="boton">Visitar sitio
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10L10 4M10 4H5M10 4V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
 
-    <p>Video reproducido con la etiqueta video:</p>
-    <video controls>
-      <source src="https://mdn.github.io/shared-assets/videos/flower.mp4" type="video/mp4">
-      Tu navegador no puede reproducir este video.
-    </video>
+      </div>
+    </main>
 
-    <p>Mapa del estadio El Campín incrustado con un iframe:</p>
-    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-74.0815%2C4.6420%2C-74.0735%2C4.6495&amp;layer=mapnik&amp;marker=4.6458%2C-74.0775"
-            title="Mapa del Estadio El Campín"></iframe>
-  </section>
+    <footer>
+      <span>Andrés Jiménez · Diego Hernández · José Ramírez · Luis Amorocho</span>
+      <span>CIPA Cod Point · Actividad de aprendizaje · Unidad 2 · 2026</span>
+    </footer>
 
-  <footer>
-    <p>Luis Felipe Amorocho Ayala &middot; 2026</p>
-  </footer>
-
-  <script>
-    function mostrarDato() {
-      document.getElementById("dato").textContent =
-        "Un mediocampista recorre entre 10 y 12 kilómetros por partido.";
-    }
-  </script>
-
+  </div>
 </body>
 </html>
